@@ -1,0 +1,6 @@
+[submodule "code/ThirdParty/olcPixelGameEngine"]
+	path = code/ThirdParty/olcPixelGameEngine
+	url = https://github.com/OneLoneCoder/olcPixelGameEngine.git
+[submodule "code/ThirdParty/googletest"]
+	path = code/ThirdParty/googletest
+	url = https://github.com/google/googletest.git
