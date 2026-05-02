@@ -4,6 +4,8 @@ This repository contains a collection of examples and applications demonstrating
 
 The goal of this project is to explore cross-platform development (Windows and Linux) and document the learning process through practical code samples.
 
+See [Git_branching](Git_branching.md) for info how to navigate through projects.
+
 ## Credits
 
 This project is built using the **olcPixelGameEngine**, created by **javidx9** (OneLoneCoder).

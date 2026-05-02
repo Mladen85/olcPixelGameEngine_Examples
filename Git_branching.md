@@ -4,10 +4,11 @@ This document outlines the branching strategy for the project.
 
 ## Master branch
 The `master` branch shall be used for general files only (README.md, LICENSE, etc.).
+For updating master branch use `feature/master_XYZ` branch for merging changes.
 
 ## Project branch
 A dedicated `<project>` branch will be used for the development of each project.<br>
-The release version for each project shall be labeled with tag `<project>_X.X.X`.
+The release version for each project shall be labeled with tag `<project>_XXX`.
 
 ## Feature branch
 Feature branches will be used for adding features and shall be named `<project>_f/XXX_Description`.<br>
