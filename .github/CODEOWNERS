@@ -1,0 +1,10 @@
+# CODEOWNERS document:
+# Owner of entire repo:
+*       @Mladen85
+
+# Override rule for specific directories:
+/code/  @Mladen85
+/docs/  @Mladen85
+
+# Override rule for specific file types"
+*.c     @Mladen85

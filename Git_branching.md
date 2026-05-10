@@ -10,6 +10,8 @@ For updating master branch use `feature/master_XYZ` branch for merging changes.
 A dedicated `<project>` branch will be used for the development of each project.<br>
 The release version for each project shall be labeled with tag `<project>_XXX`.
 
+`<project>_XXX` branch can only be created by repo owner directly in GitHub repo.
+
 ## Feature branch
 Feature branches will be used for adding features and shall be named `<project>_f/XXX_Description`.<br>
 Branch ID `XXX`: if there is an issue created in GitHub, the issue ID shall be used. If an issue is not created, the ID can be skipped `<project>_f/Description`.<br>
@@ -27,12 +29,18 @@ Bugfix branches will be deleted after the merge.
 ## Other branch
 If there is a need for other branches, they shall be explained here.
 
-**Note:** This project doesn't use a development branch. Instead, project branches will be used for each project.
+**Note:**
+- This project doesn't use a development branch. Instead, project branches will be used for each project.
 ```
 ## `development` branch
 Will be used during development.<br>
 Release versions will be tagged on each `<project>` branch.
 ```
+- Rulesets are added. If there are problems with pushing to GitHub or working online, please contact repo admin.
+
+## Pull Request template
+Pull request template file added to [pull_request_template.md](.github/pull_request_template.md).<br>
+When creating PR this template will be automatically loaded in GitHub.
 
 # TODO list
 - [ ] Create an issue on GitHub (mandatory for bugfix, optional for feature)

@@ -1,0 +1,22 @@
+# --- Global Settings ---
+BasedOnStyle: LLVM
+IndentWidth: 4
+ColumnLimit: 100
+
+---
+Language: Cpp
+# This section applies to BOTH C and C++ by default, 
+# but we will use "Language: C" below to override for C-only files.
+
+# Modern C++ Style (Same line braces)
+BreakBeforeBraces: Attach
+AllowShortFunctionsOnASingleLine: None
+FixNamespaceComments: true
+
+---
+Language: C
+# Automotive/MISRA Style (New line braces)
+BreakBeforeBraces: Allman
+# Enforce braces even for single-line if/else
+AllowShortIfStatementsOnASingleLine: false
+IndentCaseLabels: true
