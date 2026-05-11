@@ -6,6 +6,13 @@ The goal of this project is to explore cross-platform development (Windows and L
 
 See [Git_branching](Git_branching.md) for info how to navigate through projects.
 
+## License
+This project and all its examples are licensed under the OLC-3 License.
+
+A copy of the license is included in the LICENSE file. Per the license requirements, the original engine author (javidx9) is credited in both the source and binary forms of these applications.
+
+For more information see [`LICENSE`](LICENSE) and [`olcPixelGameEngine/LICENCE.md`](code/ThirdParty/olcPixelGameEngine/LICENCE.md).
+
 ## Credits
 
 This project is built using the **olcPixelGameEngine**, created by **javidx9** (OneLoneCoder).
@@ -31,10 +38,8 @@ To update the engine submodule to the latest commit from its main branch, run:
 git submodule update --remote --merge
 ```
 
-## License
-This project and all its examples are licensed under the OLC-3 License.
-
-A copy of the license is included in the LICENSE file. Per the license requirements, the original engine author (javidx9) is credited in both the source and binary forms of these applications.
+### Pre-hook
+Copy [`pre-push`](pre-push) to `.git/hooks` directory so git can suggest correct branch name.
 
 ## ThirdParty modules
 

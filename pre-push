@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Regex: feature/ or bug/ followed by project_task
+VALID_REGEX="^(feature|bug)\/[a-zA-Z0-9.-]+_[a-zA-Z0-9.-]+$"
+
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+# Allow master and any specific "project branches" (e.g., v1-physics)
+if [[ "$current_branch" == "master" ]]; then
+    echo "--------------------------------------------------------"
+    echo "PUSH REJECTED: Forbidden action -- can't push to '$current_branch'"
+    echo "--------------------------------------------------------"
+    exit 1
+fi
+
+if [[ ! $current_branch =~ $VALID_REGEX ]]; then
+    echo "--------------------------------------------------------"
+    echo "PUSH REJECTED: Invalid branch name '$current_branch'"
+    echo "Format: feature/<project-branch>-XXX_<text-separated-with-hyphens>"
+    echo "Example: feature/master-001_project-setup"
+    echo "--------------------------------------------------------"
+    exit 1
+fi
