@@ -6,6 +6,8 @@ The goal of this project is to explore cross-platform development (Windows and L
 
 See [Git_branching](Git_branching.md) for info how to navigate through projects.
 
+---
+
 ## License
 This project and all its examples are licensed under the OLC-3 License.
 
@@ -13,12 +15,16 @@ A copy of the license is included in the LICENSE file. Per the license requireme
 
 For more information see [`LICENSE`](LICENSE) and [`olcPixelGameEngine/LICENCE.md`](code/ThirdParty/olcPixelGameEngine/LICENCE.md).
 
+---
+
 ## Credits
 
 This project is built using the **olcPixelGameEngine**, created by **javidx9** (OneLoneCoder).
 
 - **Engine Author:** [javidx9/OneLoneCoder](https://github.com/OneLoneCoder)
 - **YouTube Channel:** [javidx9](https://www.youtube.com/javidx9)
+
+---
 
 ## Getting Started
 
@@ -32,14 +38,86 @@ git clone --recursive https://github.com/Mladen85/olcPixelGameEngine_Examples.gi
 git submodule update --init --recursive
 ```
 
-### Maintenance
+---
+
+## Maintenance
 To update the engine submodule to the latest commit from its main branch, run:
 ```bash
 git submodule update --remote --merge
 ```
+<br>
 
-### Pre-hook
-Copy [`pre-push`](pre-push) to `.git/hooks` directory so git can suggest correct branch name.
+### Hooks
+Copy following hooks to to `.git/hooks` directory so git can suggest correct branch name and check commit signature:
+- [`pre-push`](pre-push)
+- [`post-commit`](post-commit)
+<br><br>
+
+### Pull Request guideline
+<br>
+
+#### Signed commits
+This guide explains how to use an SSH key to sign commits for GitHub.
+
+1. Generate or Identify your SSH Key
+If you don't have one, generate it:
+```bash
+ssh-keygen -t ed25519 -C "<email>"
+```
+**NOTE**: `<email>` shall match your E-mail set in global git config (```~/.gitconfig```, check if you set your real E-mail or anonymous).
+
+2. Add the Key to GitHub
+- Copy your public key: ```cat ~/.ssh/id_ed25519.pub```
+- Go to GitHub Settings -> SSH and GPG keys.
+- Click **New SSH Key**.
+- **CRITICAL:** Change 'Key type' to **Signing Key**.
+- Paste your key and save.
+
+3. Configure Local Git
+Run these commands to tell Git to use SSH instead of GPG:
+
+```bash
+# Change format to SSH
+git config --global gpg.format ssh
+
+# Point to your PRIVATE key file
+git config --global user.signingkey ~/.ssh/id_ed25519
+
+# Enable signing by default
+git config --global commit.gpgsign true
+```
+
+4. Local check
+```post-commit``` and ```pre-push``` hooks can check if commits are signed and prevent pushing to remote.<br>
+To enable correct workflow add additional file that will hold signatures
+```bash
+# This takes your email and your public key and puts them in a format Git understands
+echo "$(git config user.email) $(cat ~/.ssh/id_ed25519.pub)" > ~/.ssh/allowed_signers
+
+# Tell Git where the file is
+git config --global gpg.ssh.allowedSignersFile ~/.ssh/allowed_signers
+
+# Test command in console (prints commit hash %H and if commit is signed correctly or not
+#   %G? -> G - commit is verified, B - bad signature, "U" - good signature with unknown validity...)
+git log origin/master..HEAD --format="%H %G?"
+```
+
+5. Fix Unverified Commits. If you have a commit that is already pushed but unverified, amend it:
+
+```bash
+git commit --amend --no-edit
+git push origin <branch> --force-with-lease
+```
+
+6. Verification
+Run ```git log --show-signature``` to verify local signatures. On GitHub, look for the green Verified badge next to the commit.<br>
+
+#### PR Labeling
+Use following label system for PR-s:
+- Project classification: ```proj:<project_name>``` to classify which project is affected with this PR.
+- PR type: ```Documentation```, ```Implementation``` and ```Bug```.
+
+---
 
 ## ThirdParty modules
 
