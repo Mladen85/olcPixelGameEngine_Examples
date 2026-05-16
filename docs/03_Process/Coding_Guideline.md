@@ -1,16 +1,7 @@
-import os
+# C Coding Guideline (Automotive Standard)
 
-def generate_guidelines():
-    output_dir = "docs/03_Process"
-    
-    # Ensure directory exists
-    if not os.path.exists(output_dir):
-        os.makedirs(output_dir)
-
-    guidelines = {
-        "Coding_Guideline_C.md": """# C Coding Guideline (Automotive Standard)
 ## 1. Naming Conventions
-- **Global Functions:** `<ModuleName>_<ReturnType>_<FunctionName>` (e.g., `Phys_u8_GetVelocity`).
+- **Global Functions:** `<ModuleName>_<ReturnType>_<FunctionName>` (e.g., `Phys_ui8_GetVelocity`).
 - **Global Variables:** `g_<ModuleName>_<Type>_<VarName>`.
 - **Struct Types:** Must end with `_s` (e.g., `struct Config_s`).
 - **Typedefs:** Must end with `_t` (e.g., `uint8_t`, `State_t`).
@@ -24,13 +15,17 @@ def generate_guidelines():
 
 ## 3. Constraints
 - Avoid dynamic memory allocation (`malloc`/`free`).
-- No floating point math unless explicitly approved for the module.""",
+- No floating point math unless explicitly approved for the module.
 
-        "Coding_Guideline_CPP.md": """# C++ Coding Guideline (Modern TDD Style)
+---
+
+# C++ Coding Guideline (Modern TDD Style)
+
 ## 1. Naming Conventions
 - **Classes:** `PascalCase` (e.g., `PhysicsEngine`).
 - **Methods:** `camelCase` (e.g., `calculateForce()`).
-- **Member Variables:** `camelCase_` with trailing underscore (e.g., `mass_`).
+- **Local Variables & Parameters:** `camelCase` (e.g., `deltaTime`, `minX`).
+- **Member Variables:** `m_camelCase` with trailing underscore (e.g., `m_mass`).
 - **Interfaces:** Prefix with `I` (e.g., `IDisplay`).
 - **Namespaces:** `lowercase`.
 
@@ -38,12 +33,16 @@ def generate_guidelines():
 - **Variable Declaration:** Define variables as close to their first use as possible (RAII).
 - **Braces:** Opening brace on the same line (K&R style) or new line, but be consistent.
 - **Modern Features:** Favor `nullptr` over `NULL`. Use `auto` for complex iterator types.
+- **Indentation:** 4 spaces, no tabs
 
 ## 3. Best Practices
 - Use Smart Pointers (`std::unique_ptr`) instead of raw pointers.
-- Every class should be tested via Google Test (TDD).""",
+- Every class should be tested via Google Test (TDD).
 
-        "Coding_Guideline_Python.md": """# Python Coding Guideline (PEP 8)
+---
+
+# Python Coding Guideline (PEP 8)
+
 ## 1. Naming Conventions
 - **Functions/Variables:** `snake_case`.
 - **Classes:** `PascalCase`.
@@ -56,14 +55,4 @@ def generate_guidelines():
 
 ## 3. Logic
 - Use List Comprehensions for simple loops.
-- Always include `if __name__ == "__main__":` in executable scripts."""
-    }
-
-    for filename, content in guidelines.items():
-        path = os.path.join(output_dir, filename)
-        with open(path, "w") as f:
-            f.write(content)
-        print(f"Generated: {path}")
-
-if __name__ == "__main__":
-    generate_guidelines()
+- Always include `if __name__ == "__main__":` in executable scripts.

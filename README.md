@@ -38,6 +38,12 @@ git clone --recursive https://github.com/Mladen85/olcPixelGameEngine_Examples.gi
 git submodule update --init --recursive
 ```
 
+### Coding guidelines
+Refer to [`docs/03_Process/Coding_Guideline.md`](docs/03_Process/Coding_Guideline.md) for coding guideline stiles for different programming languages.
+
+### Backlog tasks
+Refer to [`docs/03_Process/Backlog.md`](docs/03_Process/Backlog.md) for open tasks.
+
 ---
 
 ## Maintenance
