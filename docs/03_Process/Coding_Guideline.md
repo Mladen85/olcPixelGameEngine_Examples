@@ -25,7 +25,7 @@
 - **Classes:** `PascalCase` (e.g., `PhysicsEngine`).
 - **Methods:** `camelCase` (e.g., `calculateForce()`).
 - **Local Variables & Parameters:** `camelCase` (e.g., `deltaTime`, `minX`).
-- **Member Variables:** `m_camelCase_` with trailing underscore (e.g., `m_mass`).
+- **Member Variables:** `m_camelCase` with trailing underscore (e.g., `m_mass`).
 - **Interfaces:** Prefix with `I` (e.g., `IDisplay`).
 - **Namespaces:** `lowercase`.
 
