@@ -168,5 +168,3 @@ if (DOXYGEN_FOUND)
     doxygen_add_docs(doxygen-docs ${PROJECT_SOURCE_DIR})
 endif()
 ```
-- [] - a
-- [] - b
