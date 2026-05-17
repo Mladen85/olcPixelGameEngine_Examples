@@ -38,6 +38,14 @@ git clone --recursive https://github.com/Mladen85/olcPixelGameEngine_Examples.gi
 git submodule update --init --recursive
 ```
 
+### Install missing dependencies (on Linux)
+**OpenGL**
+```bash
+sudo apt-get update
+sudo apt-get install libgl1-mesa-dev libglu1-mesa-dev
+```
+__Note:__ On Fedora install `mesa-libGL-devel`, on Arch `mesa`.
+
 ### Coding guidelines
 Refer to [`docs/03_Process/Coding_Guideline.md`](docs/03_Process/Coding_Guideline.md) for coding guideline stiles for different programming languages.
 
