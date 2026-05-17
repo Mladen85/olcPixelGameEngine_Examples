@@ -18,4 +18,4 @@ Fixes/Implements: # (Issue Number)
 ## 🛠️ Self-Review Checklist
 - [ ] No "WIP" or "TODO" comments left in code.
 - [ ] No hardcoded magic numbers (used constants instead).
-- [ ] Branch name follows: `feature/<project-branch>_XXX-<text>`
+- [ ] Branch name follows [**Git_branching.md**](Git_branching.md) strategy.

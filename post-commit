@@ -1,12 +1,33 @@
 #!/bin/bash
-# Check the signature of the commit just created
-# for additional info on --format and "%G?" look for git log --help and check section PRETTY FORMATS
-status=$(git log -1 --format="%G?")
+# Check the signature and message of the commit just created
 
+commit_hash=$(git log -1 --format="%h")
+status=$(git log -1 --format="%G?")
+commit_msg=$(git log -1 --format="%s")
+
+# 1. Check GPG Signature
 if [[ "$status" != "G" ]]; then
     echo "--------------------------------------------------------"
-    echo "WARNING: The commit you just made is NOT signed!"
+    echo "WARNING: Commit $commit_hash is NOT signed!"
     echo "GitHub rules will block this from being merged."
     echo "Fix it now with: git commit --amend --no-edit -S"
+    echo "--------------------------------------------------------"
+fi
+
+# 2. Check Commit Message Format
+# Expected: project-XXX/feature-XX/story-XX: description
+# Or:       project-XXX/bugfix-XX: description
+COMMIT_REGEX="^story-[0-9]+|bugfix-[0-9]+): .+"
+
+# We ignore "Merge" commits as they are generated automatically
+if [[ ! "$commit_msg" =~ $COMMIT_REGEX ]] && [[ "$commit_msg" != Merge* ]] && [[ "$commit_msg" != "Initial commit"* ]]; then
+    echo "--------------------------------------------------------"
+    echo "WARNING: Commit message format does not match guidelines!"
+    echo "Expected format:"
+    echo "  story-xx: commit_description (#123)"
+    echo "  bugfix-XX: commit_description (#123)"
+    echo ""
+    echo "Actual message: $commit_msg"
+    echo "Fix it now with: git commit --amend"
     echo "--------------------------------------------------------"
 fi
