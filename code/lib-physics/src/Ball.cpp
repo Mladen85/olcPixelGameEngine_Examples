@@ -9,7 +9,7 @@ Ball::Ball(olc::vf2d initPosition, olc::vf2d initVelocity, float radius) :
 }
 
 void Ball::Update(float deltaTime) {
-    (void)deltaTime;
+    m_position += m_velocity * deltaTime;
 }
 
 const olc::vf2d& Ball::GetPosition() const {
