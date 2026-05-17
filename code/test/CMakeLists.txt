@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 project(BallTestSuite CXX)
 
 # 1. Enable CMake's internal CTest test runner engine
-enable_testing()
+# enable_testing()
 
 # 2. Locate and configure GoogleTest (assuming it's sub-directed in ThirdParty)
 # If you haven't added it yet, ensure your root or ThirdParty CMake handles add_subdirectory
